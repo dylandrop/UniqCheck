@@ -1,0 +1,36 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+ *= require bootstrap
+*/
+
+.addthis {
+	float:right;
+	width:200px;
+}
+
+.notice,.alert {
+    background-color:#80B2FF;
+    border:1px solid #0066FF;
+    display: inline-block;
+    padding:4px;
+}​
+
+.checkbox {
+    background-color:#FF9933;
+    width:24px;
+    height:24px;
+    -moz-border-radius: 3px;
+	border-radius: 3px;
+}​
+
+.todo {
+	color:#0066FF;
+}
+
+h2,h3,h4 {
+	color:#0066FF;
+}

@@ -1,0 +1,36 @@
+<% if notice %>
+<div class="notice"><%= notice %></div>
+<% end %>
+<br />
+<br />
+<h1>
+  <%= @checklist.name %>
+</h1>
+<br />
+<p>
+  <b>Share link:</b> 
+  http://uniqcheck.com/checklists/<%= @checklist.tag %>
+<br /><br />
+<b><%= mail_to "", "Email this checklist.",
+         :subject => "Someone shared an checklist with you on UniqCheck!", :body => "Hey, come check out this checklist I made." %></b>
+</p>
+<br />
+<h4>Things to do:</h4><br />
+<% @checklist.checks.each do |check| %>
+<%= check_box_tag '', value ="1", check.completed, :class => "complete", :id => check.id %>&nbsp;&nbsp;
+<%= check.name %><br /><br />
+<% end %>
+<br />
+<%= link_to 'Add more todos', edit_checklist_path(@checklist) %>
+<script>
+
+$(".complete").click(function() {
+	var id = $(this).attr('id');
+	$.ajax({
+			type: "POST",
+	        url: '/complete.json',
+			data: 'id=' + id,
+	        async: false
+	});
+});
+</script>
